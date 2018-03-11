@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &110210640
 GameObject:
@@ -117,8 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 110210641}
   - component: {fileID: 110210642}
-  - component: {fileID: 110210643}
   - component: {fileID: 110210644}
+  - component: {fileID: 110210643}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -155,7 +160,7 @@ MonoBehaviour:
   _zoom: 16
   _root: {fileID: 0}
   _tileProvider: {fileID: 110210643}
-  _mapVisualizer: {fileID: 11400000, guid: c9b7f3a88d66eb542933eb7aa557a5fd, type: 2}
+  _mapVisualizer: {fileID: 11400000, guid: b3131a39beccc174a92afe8c2f1aea86, type: 2}
   _unityTileSize: 100
   _snapMapHeightToZero: 1
 --- !u!114 &110210643
@@ -166,13 +171,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 110210640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d7ff8ed3b76a4ee5a451d64a5393e3f, type: 3}
+  m_Script: {fileID: 11500000, guid: dae9a62a6a8194f49bab9128c9acffb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _west: 1
-  _north: 1
-  _east: 1
-  _south: 1
+  _camera: {fileID: 896775720}
+  _visibleBuffer: 1
+  _disposeBuffer: 6
+  _updateInterval: 1
 --- !u!114 &110210644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,20 +338,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -543,11 +534,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!4 &896775721
 Transform:
   m_ObjectHideFlags: 0

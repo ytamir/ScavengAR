@@ -11,7 +11,7 @@
 
 	public class DynamicZoomTileProvider : AbstractTileProvider
 	{
-		[HideInInspector]
+		
 		public Camera _referenceCamera;
 
 		/// <summary>previous Camera.Y</summary>

@@ -5,10 +5,14 @@
 	using Utils;
 	using UnityEngine;
 	using Mapbox.Map;
+    using Mapbox.Unity.Location;
 
-	public abstract class AbstractMap : MonoBehaviour, IMap
+    public abstract class AbstractMap : MonoBehaviour, IMap
 	{
-		[SerializeField]
+
+        ILocationProvider _locationProvider;
+
+        [SerializeField]
 		bool _initializeOnStart = true;
 
 		[Geocode]
@@ -130,10 +134,20 @@
 				var latLonSplit = _latitudeLongitudeString.Split(',');
 				Initialize(new Vector2d(double.Parse(latLonSplit[0]), double.Parse(latLonSplit[1])), _zoom);
 			}
+            else
+            {
+                _locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
+                _locationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
+            }
 		}
+        void LocationProvider_OnLocationUpdated(object sender, Location.LocationUpdatedEventArgs e)
+        {
+            _locationProvider.OnLocationUpdated -= LocationProvider_OnLocationUpdated;
+            Initialize(e.Location, Zoom);
+        }
 
-		// TODO: implement IDisposable, instead?
-		void OnDestroy()
+        // TODO: implement IDisposable, instead?
+        void OnDestroy()
 		{
 			if (_tileProvider != null)
 			{

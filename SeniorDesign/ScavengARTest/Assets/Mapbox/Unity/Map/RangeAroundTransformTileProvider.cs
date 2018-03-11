@@ -36,13 +36,28 @@
 
 		private void Update()
 		{
-			if (!_initialized) return;
+            if (!_initialized)
+            {
+                // Debug.Log("Return");
+                return;
+            }
 
 			_currentTile = TileCover.CoordinateToTileId(_targetTransform.localPosition.GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale), _map.Zoom);
 
-			if (!_currentTile.Equals(_cachedTile))
+            Debug.Log(_targetTransform.localPosition);
+            Debug.Log(_targetTransform.localPosition.GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale));
+            Debug.Log("Current Tile");
+            Debug.Log(_currentTile);
+            //Debug.Log("Position");
+            //Debug.Log(_targetTransform.localPosition.GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale).x);
+
+            //Debug.Log(_targetTransform.localPosition.GetGeoPosition(_map.CenterMercator, _map.WorldRelativeScale).y);
+
+            if (!_currentTile.Equals(_cachedTile))
 			{
-				for (int x = _currentTile.X - _visibleBuffer; x <= (_currentTile.X + _visibleBuffer); x++)
+                //Debug.Log("here");
+                // Debug.Log("Different Tile");
+                for (int x = _currentTile.X - _visibleBuffer; x <= (_currentTile.X + _visibleBuffer); x++)
 				{
 					for (int y = _currentTile.Y - _visibleBuffer; y <= (_currentTile.Y + _visibleBuffer); y++)
 					{
@@ -50,11 +65,12 @@
 					}
 				}
 				_cachedTile = _currentTile;
-				Cleanup(_currentTile);
+				//Cleanup(_currentTile);
 			}
-		}
+            // Debug.Log("End");
+        }
 
-		private void Cleanup(UnwrappedTileId currentTile)
+        private void Cleanup(UnwrappedTileId currentTile)
 		{
 			var keys = _activeTiles.Keys.ToList();
 			for (int i = 0; i < keys.Count; i++)
