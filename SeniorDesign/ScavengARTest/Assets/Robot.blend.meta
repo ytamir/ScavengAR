@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: c4ba60347bbb7be4c881dfd1dc58439f
+timeCreated: 1520449802
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body
+    100002: ChestPiece1
+    100004: ChestPiece2
+    100006: ChestPiece3
+    100008: ChestPiece4
+    100010: ChestPiece5
+    100012: ChestPiece5_001
+    100014: Finger1
+    100016: Finger2
+    100018: Finger3
+    100020: Finger4
+    100022: Finger5
+    100024: Finger6
+    100026: Head
+    100028: LArm
+    100030: LEye
+    100032: LEye_001
+    100034: LKnee
+    100036: LLeg
+    100038: LShoulder
+    100040: LThigh
+    100042: Mouth1
+    100044: Mouth2
+    100046: Mouth3
+    100048: Neck
+    100050: RArm
+    100052: RKnee
+    100054: RLeg
+    100056: //RootNode
+    100058: RShoulder
+    100060: RThigh
+    400000: Body
+    400002: ChestPiece1
+    400004: ChestPiece2
+    400006: ChestPiece3
+    400008: ChestPiece4
+    400010: ChestPiece5
+    400012: ChestPiece5_001
+    400014: Finger1
+    400016: Finger2
+    400018: Finger3
+    400020: Finger4
+    400022: Finger5
+    400024: Finger6
+    400026: Head
+    400028: LArm
+    400030: LEye
+    400032: LEye_001
+    400034: LKnee
+    400036: LLeg
+    400038: LShoulder
+    400040: LThigh
+    400042: Mouth1
+    400044: Mouth2
+    400046: Mouth3
+    400048: Neck
+    400050: RArm
+    400052: RKnee
+    400054: RLeg
+    400056: //RootNode
+    400058: RShoulder
+    400060: RThigh
+    2100000: Material_009
+    2100002: Material_007
+    2100004: Material_006
+    2100006: Material_003
+    2100008: Material_001
+    2100010: unnamed
+    2100012: Material
+    2100014: Material_002
+    2100016: Material_004
+    2100018: Material_005
+    2100020: Material_008
+    2100022: Material_011
+    2100024: Material_012
+    2300000: Body
+    2300002: ChestPiece1
+    2300004: ChestPiece2
+    2300006: ChestPiece3
+    2300008: ChestPiece4
+    2300010: ChestPiece5
+    2300012: ChestPiece5_001
+    2300014: Finger1
+    2300016: Finger2
+    2300018: Finger3
+    2300020: Finger4
+    2300022: Finger5
+    2300024: Finger6
+    2300026: Head
+    2300028: LArm
+    2300030: LEye
+    2300032: LEye_001
+    2300034: LKnee
+    2300036: LLeg
+    2300038: LShoulder
+    2300040: LThigh
+    2300042: Mouth1
+    2300044: Mouth2
+    2300046: Mouth3
+    2300048: Neck
+    2300050: RArm
+    2300052: RKnee
+    2300054: RLeg
+    2300056: RShoulder
+    2300058: RThigh
+    3300000: Body
+    3300002: ChestPiece1
+    3300004: ChestPiece2
+    3300006: ChestPiece3
+    3300008: ChestPiece4
+    3300010: ChestPiece5
+    3300012: ChestPiece5_001
+    3300014: Finger1
+    3300016: Finger2
+    3300018: Finger3
+    3300020: Finger4
+    3300022: Finger5
+    3300024: Finger6
+    3300026: Head
+    3300028: LArm
+    3300030: LEye
+    3300032: LEye_001
+    3300034: LKnee
+    3300036: LLeg
+    3300038: LShoulder
+    3300040: LThigh
+    3300042: Mouth1
+    3300044: Mouth2
+    3300046: Mouth3
+    3300048: Neck
+    3300050: RArm
+    3300052: RKnee
+    3300054: RLeg
+    3300056: RShoulder
+    3300058: RThigh
+    4300000: ChestPiece4
+    4300002: ChestPiece2
+    4300004: ChestPiece1
+    4300006: Mouth1
+    4300008: LEye
+    4300010: LLeg
+    4300012: LKnee
+    4300014: LThigh
+    4300016: Finger1
+    4300018: LArm
+    4300020: LShoulder
+    4300022: Body
+    4300024: Neck
+    4300026: Head
+    4300028: RShoulder
+    4300030: RArm
+    4300032: Finger2
+    4300034: Finger4
+    4300036: Finger3
+    4300038: Finger5
+    4300040: Finger6
+    4300042: RThigh
+    4300044: RKnee
+    4300046: RLeg
+    4300048: LEye_001
+    4300050: Mouth2
+    4300052: Mouth3
+    4300054: ChestPiece3
+    4300056: ChestPiece5
+    4300058: ChestPiece5_001
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

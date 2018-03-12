@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526c8a90df31d41fe8057a6f85c7a3e4, type: 3}
+  m_Name: MapVisualizer
+  m_EditorClassIdentifier: 
+  Factories:
+  - {fileID: 11400000, guid: 200dcb654249fef44a304a98c4870236, type: 2}
+  - {fileID: 11400000, guid: ab829f9d579c73246b30f42f7cf2aa3e, type: 2}
+  _loadingTexture: {fileID: 2800000, guid: c80c2e2443adb6d478363a64f4adfb6e, type: 3}
