@@ -10,6 +10,8 @@ TagManager:
   - CurrentLatText
   - CurrentLonText
   - NumUpdatesText
+  - LocationManager
+  - ObjectManager
   layers:
   - Default
   - TransparentFX
