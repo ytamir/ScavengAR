@@ -5,6 +5,7 @@ using Mapbox.Unity.Map;
 using UnityEngine;
 using System.Collections;
 using Mapbox.Utils;
+using UnityEngine.SceneManagement;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -68,9 +69,16 @@ public class ObjectManager : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         LocationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
         _map.OnInitialized += () => _isInitialized = true;
         StartCoroutine("SetLocation");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log(scene.name);
     }
 
     IEnumerator SetLocation()
@@ -85,13 +93,19 @@ public class ObjectManager : MonoBehaviour
         {
             var oldBase = baseLocation;
             Vector2 testLoc = Random.insideUnitCircle;
-            testLoc.x *= (float)0.0024;
-            testLoc.y *= (float)0.0018;
+            var t1 = GameObject.FindGameObjectWithTag("GameDriver").GetComponent<GameDriver>().getX();
+            Debug.Log(t1);
+            var t2 = GameObject.FindGameObjectWithTag("GameDriver").GetComponent<GameDriver>().getY();
+            Debug.Log(t2);
+            testLoc.x *= t1;
+            testLoc.y *= t2;
             baseLocation.x = baseLocation.x + testLoc.x;
             baseLocation.y = baseLocation.y + testLoc.y;
             GameObject test = Instantiate(obj, Conversions.GeoToWorldPosition(baseLocation.x, baseLocation.y,
                                                                     _map.CenterMercator,
                                                                     _map.WorldRelativeScale).ToVector3xz(), Quaternion.identity).gameObject;
+            test.transform.position = new Vector3(test.transform.position.x, 3, test.transform.position.z);
+            
             baseLocation = oldBase;
         }
         //test.transform.rotation = new Quaternion(0, 0, 0, 5);

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/AlecTest.unity
+- path: Assets/Scenes/Menus.unity
   isLoaded: 1
   isActive: 1

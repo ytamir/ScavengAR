@@ -1,6 +1,6 @@
 Android
 SceneListBegin?
-Assets/Scenes/AlecTest.unity
+Assets/Scenes/Menus.unity
 SceneListEnd?
 109bc24ceb27d134c3dca242e524fca6 Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Components.VertexDebugger
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Mapbox.Examples.HighlightFeature
@@ -218,6 +218,7 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 1820432567a434b34fbcfc777cbde1be Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Modifiers.LineMeshModifier
 50c19b31df331c90f7911a2c28ca46c5 Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Factories.FlatSphereTerrainFactory
 0b859ec96e868c7408c743a05d53e38f Assembly-CSharp.dll:Mapbox.Examples.CameraMovement
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ChangeScene
 4687db7a0a4f25cd0ebb1317128c81a7 Assembly-CSharp.dll:Mapbox.Examples.Playground.ReverseGeocoderExample
 94cd6299c641309feb6b6f8f3bcd2959 Assembly-CSharp.dll:Mapbox.Unity.Map.DynamicZoomTileProvider
 7afbb4d1e228c936db08a975a5721d5d Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Modifiers.SpawnInsideModifier
@@ -263,6 +264,7 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 c8b3a970a0bd54c4c79504e2a52ea626 Assembly-CSharp.dll:Mapbox.Examples.DynamicZoomCameraMovement
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Filters.FilterBase
+83ecf9c8df86233e1cda3c3081ab53ea Assembly-CSharp.dll:.Collision
 bf09ee2e5fc51800c24bc9ad47088efd Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Modifiers.AddMonoBehavioursModifier
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput

@@ -83,7 +83,7 @@
         {
             if (_isInitialized)
             {
-                Debug.Log(e.Location);
+                //Debug.Log(e.Location);
                 _targetPosition = Conversions.GeoToWorldPosition(e.Location,
                                                                  _map.CenterMercator,
                                                                  _map.WorldRelativeScale).ToVector3xz();

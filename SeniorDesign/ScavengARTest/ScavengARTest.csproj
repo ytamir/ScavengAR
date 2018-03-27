@@ -514,6 +514,10 @@
     <Compile Include="Assets\Mapbox\Unity\Utilities\StyleSearchAttribute.cs" />
     <Compile Include="Assets\Mapbox\Unity\Utilities\TelemetryConfigurationButton.cs" />
     <Compile Include="Assets\Mapbox\Unity\Utilities\VectorExtensions.cs" />
+    <Compile Include="Assets\Scripts\ChangeScene.cs" />
+    <Compile Include="Assets\Scripts\Collision.cs" />
+    <Compile Include="Assets\Scripts\Fader.cs" />
+    <Compile Include="Assets\Scripts\GameDriver.cs" />
     <Compile Include="Assets\Scripts\GameObjects.cs" />
     <Compile Include="Assets\Scripts\LocationManager.cs" />
     <Compile Include="Assets\Scripts\MouseMove2.cs" />
@@ -523,6 +527,7 @@
     <Compile Include="Assets\Scripts\PlaceObjects.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PositionWithLocationProvider.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mapbox\Core\Plugins\link.xml" />

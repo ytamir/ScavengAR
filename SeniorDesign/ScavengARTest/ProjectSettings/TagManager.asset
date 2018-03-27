@@ -12,6 +12,11 @@ TagManager:
   - NumUpdatesText
   - LocationManager
   - ObjectManager
+  - CollisionRadius
+  - MainMenu
+  - GameSize
+  - GameMode
+  - GameDriver
   layers:
   - Default
   - TransparentFX
