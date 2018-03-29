@@ -19,4 +19,9 @@ public class ChangeScene : MonoBehaviour {
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
+
+    public void DisableCamButton(GameObject t)
+    {
+        t.SetActive(false);
+    }
 }

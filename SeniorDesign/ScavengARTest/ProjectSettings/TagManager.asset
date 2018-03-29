@@ -17,6 +17,7 @@ TagManager:
   - GameSize
   - GameMode
   - GameDriver
+  - GameTimeLbl
   layers:
   - Default
   - TransparentFX

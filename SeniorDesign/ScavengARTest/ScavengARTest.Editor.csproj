@@ -357,14 +357,33 @@
     <Compile Include="Assets\Mapbox\Unity\Editor\Tests\DuplicateAndroidLibraries.cs.cs" />
     <Compile Include="Assets\Mapbox\Unity\Editor\VectorLayerVisualizerEditor.cs" />
     <Compile Include="Assets\Mapbox\Unity\Editor\VectorTileFactoryEditor.cs" />
+    <Compile Include="Assets\Vuforia\Editor\Scripts\OpenSourceInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Editor\Vuforia\CylinderTargetTextures\VuforiaMars_Images\authoringinfo.xml" />
+    <None Include="Assets\Editor\Vuforia\Emulator\VuforiaEmulator.xml" />
+    <None Include="Assets\Editor\Vuforia\ForPrint\ModelTarget\readme_3dprint.txt" />
+    <None Include="Assets\Editor\Vuforia\TargetsetData\VuforiaMars_Object_info.xml" />
+    <None Include="Assets\Editor\Vuforia\VuforiaMars_ModelTarget\authoringinfo.xml" />
+    <None Include="Assets\Editor\Vuforia\VuforiaMars_VuMark\authoringinfo.xml" />
     <None Include="Assets\Mapbox\Core\Plugins\link.xml" />
     <None Include="Assets\Mapbox\Fonts\OpenSansLic.txt" />
     <None Include="Assets\Mapbox\README.txt" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Plugins\iOS\Vuforia.UnityExtensions.iOS.XML" />
     <None Include="Assets\Resources\Mapbox\MapboxConfiguration.txt" />
+    <None Include="Assets\StreamingAssets\Vuforia\VuforiaMars_Images.xml" />
+    <None Include="Assets\StreamingAssets\Vuforia\VuforiaMars_ModelTarget.xml" />
+    <None Include="Assets\StreamingAssets\Vuforia\VuforiaMars_Object_OT.xml" />
+    <None Include="Assets\StreamingAssets\Vuforia\VuforiaMars_VuMark.xml" />
+    <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
+    <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
+    <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
+    <None Include="Assets\Vuforia\Shaders\DepthContour.shader" />
+    <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
+    <None Include="Assets\Vuforia\Shaders\OutlineOpaque.shader" />
+    <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
+    <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
     <None Include="Assets\license_3rdpartynotice.txt" />
     <None Include="Assets\link.xml" />
     <None Include="Assets\readme_SDK.txt" />
