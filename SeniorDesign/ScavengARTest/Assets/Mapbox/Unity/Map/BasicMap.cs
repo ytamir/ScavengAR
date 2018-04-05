@@ -3,8 +3,9 @@
 	using Mapbox.Unity.Utilities;
 	using Utils;
 	using Mapbox.Map;
+    using UnityEngine;
 
-	public class BasicMap : AbstractMap
+    public class BasicMap : AbstractMap
 	{
 		public override void Initialize(Vector2d latLon, int zoom)
 		{
@@ -18,7 +19,7 @@
 			_worldRelativeScale = (float)(_unityTileSize / referenceTileRect.Size.x);
 			_mapVisualizer.Initialize(this, _fileSouce);
 			_tileProvider.Initialize(this);
-
+            Debug.Log("map initialized");
 			SendInitialized();
 		}
 	}

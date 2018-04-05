@@ -10,6 +10,14 @@ TagManager:
   - CurrentLatText
   - CurrentLonText
   - NumUpdatesText
+  - LocationManager
+  - ObjectManager
+  - CollisionRadius
+  - MainMenu
+  - GameSize
+  - GameMode
+  - GameDriver
+  - GameTimeLbl
   layers:
   - Default
   - TransparentFX

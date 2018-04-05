@@ -61,6 +61,11 @@
 
         Vector3 _targetPosition;
 
+        public void SetBaseLocation(Vector2d bl)
+        {
+            baseLocation = bl;
+        }
+
         void Start()
         {
             LocationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
@@ -70,7 +75,8 @@
 
         IEnumerator SetLocation()
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(3);
+            //Debug.Log(baseLocation);
             for (int i = 0; i < 10; i++)
             {
                 var oldBase = baseLocation;
@@ -110,6 +116,7 @@
                 _targetPosition = Conversions.GeoToWorldPosition(e.Location,
                                                                  _map.CenterMercator,
                                                                  _map.WorldRelativeScale).ToVector3xz();
+                Debug.Log("Obj: " + e.Location);
                 _isInitialized = false;
             }
         }
@@ -120,97 +127,3 @@
         }
     }
 }
-
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using Mapbox.Unity.Map;
-//using Mapbox.Unity.Location;
-//using Mapbox.Utils;
-//using Mapbox.Unity.Utilities;
-
-//public class GameObject : MonoBehaviour
-//{
-
-//    [SerializeField]
-//    private AbstractMap _map;
-
-//    bool _isInitialized;
-//    Vector2d newLoc;
-//    //GameObject cube;
-//    public Transform cube;
-//    public GameObject newestCube;
-
-//    ILocationProvider _locationProvider;
-//    ILocationProvider LocationProvider
-//    {
-//        get
-//        {
-//            if (_locationProvider == null)
-//            {
-//                _locationProvider = LocationProviderFactory.Instance.DefaultLocationProvider;
-//            }
-
-//            return _locationProvider;
-//        }
-//    }
-
-//    Vector3 initialLoc;
-//    List<GameObject> obj = new List<GameObject>();
-//    List<Vector2d> objLocations = new List<Vector2d>();
-//    int seed;
-
-//    private void Awake()
-//    {
-//        DontDestroyOnLoad(transform.gameObject);
-//    }
-
-//    // Use this for initialization
-//    void Start()
-//    {
-//        _map.OnInitialized += () => _isInitialized = true;
-//        LocationProvider.
-//        StartCoroutine(SetLocation());
-//        initialLoc = Conversions.GeoToWorldPosition(LocationProvider.Curre.LatitudeLongitude, _map.CenterMercator, _map.WorldRelativeScale);
-
-//    }
-
-//    IEnumerator SetLocation()
-//    {
-//        yield return new WaitForSeconds(1);
-//        for (int i = 0; i < 10; i++)
-//        {
-//            Vector2 testLoc = Random.insideUnitCircle;
-//            testLoc.x *= (float)0.0024;
-//            testLoc.y *= (float)0.0018;
-//            //testLoc.x *= (float)0.00024;
-//            //testLoc.y *= (float)0.00018;
-//            newLoc = LocationProvider.CurrentLocation.LatitudeLongitude;
-//            newLoc.x = newLoc.x + testLoc.x;
-//            newLoc.y = newLoc.y + testLoc.y;
-//            obj.Add(Instantiate(cube, _map.GeoToWorldPosition(newLoc), Quaternion.identity).gameObject);
-//            obj[i].transform.position = _map.GeoToWorldPosition(newLoc);
-//            objLocations.Add(newLoc);
-//        }
-//        Debug.Log(newestCube.transform.position);
-//        /*cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-//        cube.transform.localScale = new Vector3(3, 20, 3);
-//        cube.transform.position = _map.GeoToWorldPosition(newLoc);
-//        cube.name = "Cube";
-//        Debug.Log(cube.transform.position.y);*/
-//    }
-
-//    // Update is called once per frame
-//    void LateUpdate()
-//    {
-
-//        if (_isInitialized)
-//        {
-//            for (int i = 0; i < 10; i++)
-//            {
-//                obj[i].transform.position = _map.GeoToWorldPosition(objLocations[i]);
-//            }
-//            //newestCube.transform.position = _map.GeoToWorldPosition(newLoc);
-//        }
-//    }
-//}
