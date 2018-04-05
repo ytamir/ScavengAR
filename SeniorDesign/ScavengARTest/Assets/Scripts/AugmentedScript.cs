@@ -110,11 +110,8 @@ public class AugmentedScript : MonoBehaviour
     void Start()
     {
         //get distance text reference
-        //distanceTextObject = GameObject.FindGameObjectWithTag("distanceText");
-        //latitudeTextObject = GameObject.FindGameObjectWithTag("Latitude");
-        //longitudeTextObject = GameObject.FindGameObjectWithTag("Longitude");
         //start GetCoordinate() function 
-        StartCoroutine("GetCoordinates");
+        //StartCoroutine("GetCoordinates");
         //initialize target and original position
         targetPosition = transform.position;
         originalPosition = transform.position;
@@ -124,9 +121,9 @@ public class AugmentedScript : MonoBehaviour
     void Update()
     {
         //linearly interpolate from current position to target position
-        //transform.position = Vector3.Lerp(transform.position, targetPosition, speed);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, speed);
         //rotate by 1 degree about the y axis every frame
-        //transform.eulerAngles += new Vector3(0, 1f, 0);
+        transform.eulerAngles += new Vector3(0, 1f, 0);
 
     }
 }

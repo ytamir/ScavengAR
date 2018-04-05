@@ -294,6 +294,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ARObjectGenerator.cs" />
+    <Compile Include="Assets\CanvasKepper.cs" />
     <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Directions\DirectionResource.cs" />
     <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Directions\Directions.cs" />
     <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Directions\Overview.cs" />
@@ -514,6 +516,7 @@
     <Compile Include="Assets\Mapbox\Unity\Utilities\StyleSearchAttribute.cs" />
     <Compile Include="Assets\Mapbox\Unity\Utilities\TelemetryConfigurationButton.cs" />
     <Compile Include="Assets\Mapbox\Unity\Utilities\VectorExtensions.cs" />
+    <Compile Include="Assets\Scripts\ARCameraManager.cs" />
     <Compile Include="Assets\Scripts\AugmentedScript.cs" />
     <Compile Include="Assets\Scripts\CanvasSaver.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
@@ -523,6 +526,7 @@
     <Compile Include="Assets\Scripts\GameObjects.cs" />
     <Compile Include="Assets\Scripts\LocationManager.cs" />
     <Compile Include="Assets\Scripts\MenuDriver.cs" />
+    <Compile Include="Assets\Scripts\MiniMapCanvas.cs" />
     <Compile Include="Assets\Scripts\MouseMove2.cs" />
     <Compile Include="Assets\Scripts\MouseMovement.cs" />
     <Compile Include="Assets\Scripts\MouseMovement3.cs" />

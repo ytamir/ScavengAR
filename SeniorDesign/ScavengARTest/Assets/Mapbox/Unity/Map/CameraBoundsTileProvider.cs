@@ -39,6 +39,39 @@ namespace Mapbox.Unity.Map
 			_shouldUpdate = true;
 		}
 
+        public void DisableRenderOnChildren(GameObject go)
+        {
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                for (int j = 0; j < go.transform.GetChild(i).childCount; j++)
+                {
+                    go.transform.GetChild(i).GetChild(j).GetComponent<Renderer>().enabled = false;
+                }
+            }
+            if(go.transform.GetComponent<Renderer>() != null)
+            {
+                go.transform.GetComponent<Renderer>().enabled = false;
+            }
+        }
+
+        public void EnableRendererOnChildren(GameObject go)
+        {
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                for (int j = 0; j < go.transform.GetChild(i).childCount; j++)
+                {
+                    if(go.transform.GetChild(i).GetChild(j).name!="CollisionRadius")
+                    {
+                        go.transform.GetChild(i).GetChild(j).GetComponent<Renderer>().enabled = true;
+                    }
+                }
+            }
+            if (go.transform.GetComponent<Renderer>() != null && go.name != "LocationManager")
+            {
+                go.transform.GetComponent<Renderer>().enabled = true;
+            }
+        }
+
 		void Update()
 		{
 			if (!_shouldUpdate)

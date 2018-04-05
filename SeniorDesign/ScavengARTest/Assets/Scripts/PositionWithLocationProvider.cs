@@ -3,11 +3,14 @@ using Mapbox.Unity.Location;
 using Mapbox.Unity.Utilities;
 using Mapbox.Unity.Map;
 using UnityEngine;
+using Mapbox.Utils;
 
 public class PositionWithLocationProvider : MonoBehaviour
 {
 	[SerializeField]
 	private AbstractMap _map;
+
+    public Vector2d curLoc;
 
 	/// <summary>
 	/// The rate at which the transform's position tries catch up to the provided location.
@@ -62,6 +65,7 @@ public class PositionWithLocationProvider : MonoBehaviour
 	{
 		LocationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
 		_map.OnInitialized += () => _isInitialized = true;
+        Debug.Log(_isInitialized);
 	}
 
 	void OnDestroy()
@@ -76,23 +80,30 @@ public class PositionWithLocationProvider : MonoBehaviour
 	{
 		if (_isInitialized)
 		{
+            curLoc = e.Location;
 			_targetPosition = Conversions.GeoToWorldPosition(e.Location,
 																_map.CenterMercator,
 																_map.WorldRelativeScale).ToVector3xz();
+            
             if(temp)
             {
                 GameObject.FindGameObjectWithTag("ObjectManager").GetComponent<ObjectManager>().SetBaseLocation(e.Location);
+                transform.position = _targetPosition;
                 temp = false;
             }
 		}
 	}
+
+    public Vector2d getCurrentLoc()
+    {
+        return curLoc;
+    }
 
 	void Update()
 	{
         //Debug.Log(GameObject.FindGameObjectWithTag("LocationManager").GetComponent<LocationManager>().getTargetPosition());
         if (_targetPosition != new Vector3(0, 0, 0))
         {
-            //Debug.Log(_targetPosition);
             transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _positionFollowFactor);
         }
 	}

@@ -8,6 +8,7 @@ public class GameDriver : MonoBehaviour {
     private float gameSizeX;
     private float gameSizeY;
     private int gameMode;
+    private int score = 0;
     private float gameTime = 300.0f;
     public GameObject decBtn;
     public GameObject incBtn;
@@ -16,6 +17,16 @@ public class GameDriver : MonoBehaviour {
     public static GameDriver gd;
 
     // Use this for initialization
+
+    public void ScorePoint()
+    {
+        score++;
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
 
     private void Awake()
     {
@@ -86,6 +97,10 @@ public class GameDriver : MonoBehaviour {
     public void setGameMode(int mode)
     {
         gameMode = mode;
+        if(mode == 1)
+        {
+            gameTime = 0;
+        }
     }
 
     public int getGameMode()

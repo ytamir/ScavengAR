@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour {
 
+    public GameObject goToCamera;
+    public GameObject goToMiniMap;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -20,8 +23,9 @@ public class ChangeScene : MonoBehaviour {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
-    public void DisableCamButton(GameObject t)
+    public void DisableCamButton()
     {
-        t.SetActive(false);
+        goToCamera.SetActive(false);
+        goToMiniMap.SetActive(true);
     }
 }

@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class CanvasSaver : MonoBehaviour {
 
+    private static CanvasSaver cs;
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(this);
+
+        if(cs == null)
+        {
+            cs = this;
+            DontDestroyOnLoad(this);
+        }else
+        {
+            DestroyObject(gameObject);
+        }
+
 	}
 	
 	// Update is called once per frame

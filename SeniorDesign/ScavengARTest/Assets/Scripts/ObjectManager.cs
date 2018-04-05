@@ -4,11 +4,15 @@ using Mapbox.Unity.Utilities;
 using Mapbox.Unity.Map;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Mapbox.Utils;
 using UnityEngine.SceneManagement;
 
 public class ObjectManager : MonoBehaviour
 {
+
+    private static ObjectManager om;
+
     [SerializeField]
     private AbstractMap _map;
 
@@ -21,6 +25,10 @@ public class ObjectManager : MonoBehaviour
     public GameObject obj;
     public Vector2d baseLocation = new Vector2d(0, 0);
     public Vector2d origin = new Vector2d(0, 0);
+
+    public Dictionary<string, Vector2d> availableObjects = new Dictionary<string, Vector2d>();
+
+    private bool first = true;
 
     /// <summary>
     /// Use a mock <see cref="T:Mapbox.Unity.Location.TransformLocationProvider"/>,
@@ -67,53 +75,73 @@ public class ObjectManager : MonoBehaviour
         baseLocation = bl;
     }
 
+    private void Awake()
+    {
+        if (om == null)
+        {
+            om = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            DestroyObject(om);
+        }
+    }
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         LocationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
         _map.OnInitialized += () => _isInitialized = true;
-        StartCoroutine("SetLocation");
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if(first)
+        {
+            StartCoroutine("SetLocation");
+            first = false;
+        }
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void ScoreObject(string name)
     {
-        Debug.Log(scene.name);
+
     }
 
     IEnumerator SetLocation()
     {
         while (baseLocation.Equals(origin))
         {
-            Debug.Log("here");
             yield return new WaitForSeconds(1);
         }
-        Debug.Log(baseLocation);
         for (int i = 0; i < 10; i++)
         {
             var oldBase = baseLocation;
             Vector2 testLoc = Random.insideUnitCircle;
             var t1 = GameObject.FindGameObjectWithTag("GameDriver").GetComponent<GameDriver>().getX();
-            Debug.Log(t1);
             var t2 = GameObject.FindGameObjectWithTag("GameDriver").GetComponent<GameDriver>().getY();
-            Debug.Log(t2);
             testLoc.x *= t1;
             testLoc.y *= t2;
             baseLocation.x = baseLocation.x + testLoc.x;
             baseLocation.y = baseLocation.y + testLoc.y;
+            availableObjects.Add("Object " + i, baseLocation);
+            Debug.Log("Object " + i + " Loc: " + baseLocation);
             GameObject test = Instantiate(obj, Conversions.GeoToWorldPosition(baseLocation.x, baseLocation.y,
                                                                     _map.CenterMercator,
                                                                     _map.WorldRelativeScale).ToVector3xz(), Quaternion.identity).gameObject;
+            test.name = "Object " + i;
             test.transform.position = new Vector3(test.transform.position.x, 3, test.transform.position.z);
-            
+            test.transform.parent = GameObject.Find("ObjectStorage").transform;
             baseLocation = oldBase;
         }
-        //test.transform.rotation = new Quaternion(0, 0, 0, 5);
-        /*cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.localScale = new Vector3(3, 20, 3);
-        cube.transform.position = _map.GeoToWorldPosition(newLoc);
-        cube.name = "Cube";
-        Debug.Log(cube.transform.position.y);*/
+    }
+
+    public Vector2d getObjectCoords(string name)
+    {
+        Vector2d value;
+        availableObjects.TryGetValue(name, out value);
+        return value;
+    }
+
+    public void LoadCameraView()
+    {
+
     }
 
     void OnDestroy()
@@ -126,19 +154,10 @@ public class ObjectManager : MonoBehaviour
 
     void LocationProvider_OnLocationUpdated(object sender, LocationUpdatedEventArgs e)
     {
-        /*if (_isInitialized)
-        {
-            baseLocation = e.Location;
-            _targetPosition = Conversions.GeoToWorldPosition(e.Location,
-                                                                _map.CenterMercator,
-                                                                _map.WorldRelativeScale).ToVector3xz();
-            Debug.Log("Obj: " + e.Location);
-            _isInitialized = false;
-        }*/
     }
 
     void Update()
     {
-        //transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _positionFollowFactor);
+
     }
 }
