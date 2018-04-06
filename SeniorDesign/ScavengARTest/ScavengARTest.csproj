@@ -530,6 +530,7 @@
     <Compile Include="Assets\Scripts\MouseMove2.cs" />
     <Compile Include="Assets\Scripts\MouseMovement.cs" />
     <Compile Include="Assets\Scripts\MouseMovement3.cs" />
+    <Compile Include="Assets\Scripts\NewNetworkHUD.cs" />
     <Compile Include="Assets\Scripts\ObjectManager.cs" />
     <Compile Include="Assets\Scripts\PlaceObjects.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
