@@ -25,7 +25,7 @@ public class ObjectManager : MonoBehaviour
     public GameObject obj;
     public Vector2d baseLocation = new Vector2d(0, 0);
     public Vector2d origin = new Vector2d(0, 0);
-
+    public GameObject gd;
     public Dictionary<string, Vector2d> availableObjects = new Dictionary<string, Vector2d>();
 
     private bool first = true;
@@ -89,6 +89,7 @@ public class ObjectManager : MonoBehaviour
     }
     void Start()
     {
+        gd = GameObject.Find("GameDriver");
         LocationProvider.OnLocationUpdated += LocationProvider_OnLocationUpdated;
         _map.OnInitialized += () => _isInitialized = true;
         if(first)
@@ -106,22 +107,19 @@ public class ObjectManager : MonoBehaviour
 
     IEnumerator SetLocation()
     {
-        while (baseLocation.Equals(origin))
+        while (GameObject.Find("GameDriver").GetComponent<GameDriver>().hostLocation.Equals(origin))
         {
             yield return new WaitForSeconds(1);
         }
-        for (int i = 0; i < 10; i++)
+        baseLocation = GameObject.Find("GameDriver").GetComponent<GameDriver>().hostLocation;
+        for (int i = 0; i < gd.GetComponent<GameDriver>().objectCount; i++)
         {
             var oldBase = baseLocation;
-            Vector2 testLoc = Random.insideUnitCircle;
-            var t1 = GameObject.FindGameObjectWithTag("GameDriver").GetComponent<GameDriver>().getX();
-            var t2 = GameObject.FindGameObjectWithTag("GameDriver").GetComponent<GameDriver>().getY();
-            testLoc.x *= t1;
-            testLoc.y *= t2;
-            baseLocation.x = baseLocation.x + testLoc.x;
-            baseLocation.y = baseLocation.y + testLoc.y;
+            baseLocation.x = baseLocation.x + gd.GetComponent<GameDriver>().objLocations[0];
+            baseLocation.y = baseLocation.y + gd.GetComponent<GameDriver>().objLocations[1];
+            gd.GetComponent<GameDriver>().objLocations.RemoveAt(0);
+            gd.GetComponent<GameDriver>().objLocations.RemoveAt(0);
             availableObjects.Add("Object " + i, baseLocation);
-            Debug.Log("Object " + i + " Loc: " + baseLocation);
             GameObject test = Instantiate(obj, Conversions.GeoToWorldPosition(baseLocation.x, baseLocation.y,
                                                                     _map.CenterMercator,
                                                                     _map.WorldRelativeScale).ToVector3xz(), Quaternion.identity).gameObject;

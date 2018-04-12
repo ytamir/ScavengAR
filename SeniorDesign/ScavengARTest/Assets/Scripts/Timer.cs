@@ -19,13 +19,11 @@ public class Timer : MonoBehaviour {
     {
         if(mode == 0)
         {
-            if (timeRemaining > 0)
+            timeRemaining = GameObject.Find("GameDriver").GetComponent<GameDriver>().gameTime;
+            if (timeRemaining >= 0)
             {
-                timeRemaining -= Time.deltaTime;
-                var minutes = Math.Floor(timeRemaining / 60); //Divide the guiTime by sixty to get the minutes.
-                var seconds = Math.Floor(timeRemaining % 60);//Use the euclidean division for the seconds.
-                var fraction = (timeRemaining * 100) % 100;
-                //update the label value
+                var minutes = Math.Floor(timeRemaining / 60);
+                var seconds = Math.Floor(timeRemaining % 60);
                 if (minutes >= 0 && seconds >= 0)
                 {
                     timer.text = string.Format("Time: {0:00} : {1:00}", minutes, seconds);
@@ -48,10 +46,9 @@ public class Timer : MonoBehaviour {
             }
         }else
         {
-            timeRemaining += Time.deltaTime;
+            timeRemaining = GameObject.Find("GameDriver").GetComponent<GameDriver>().gameTime;
             var minutes = Math.Floor(timeRemaining / 60); //Divide the guiTime by sixty to get the minutes.
             var seconds = Math.Floor(timeRemaining % 60);//Use the euclidean division for the seconds.
-            var fraction = (timeRemaining * 100) % 100;
             //update the label value
             timer.text = string.Format("Time: {0:00} : {1:00}", minutes, seconds);
         }

@@ -4,8 +4,9 @@ using Mapbox.Unity.Utilities;
 using Mapbox.Unity.Map;
 using UnityEngine;
 using Mapbox.Utils;
+using UnityEngine.Networking;
 
-public class PositionWithLocationProvider : MonoBehaviour
+public class PositionWithLocationProvider : NetworkBehaviour
 {
 	[SerializeField]
 	private AbstractMap _map;
@@ -87,7 +88,10 @@ public class PositionWithLocationProvider : MonoBehaviour
             
             if(temp)
             {
-                GameObject.FindGameObjectWithTag("ObjectManager").GetComponent<ObjectManager>().SetBaseLocation(e.Location);
+                if(GameObject.Find("GameDriver").GetComponent<NetworkIdentity>().isServer)
+                {
+                    GameObject.Find("GameDriver").GetComponent<GameDriver>().hostLocation = e.Location;
+                }
                 transform.position = _targetPosition;
                 temp = false;
             }
@@ -101,7 +105,6 @@ public class PositionWithLocationProvider : MonoBehaviour
 
 	void Update()
 	{
-        //Debug.Log(GameObject.FindGameObjectWithTag("LocationManager").GetComponent<LocationManager>().getTargetPosition());
         if (_targetPosition != new Vector3(0, 0, 0))
         {
             transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _positionFollowFactor);

@@ -2189,6 +2189,7 @@ MonoBehaviour:
   origin:
     x: 0
     y: 0
+  gd: {fileID: 0}
   _useTransformLocationProvider: 0
 --- !u!1 &1698569864
 GameObject:

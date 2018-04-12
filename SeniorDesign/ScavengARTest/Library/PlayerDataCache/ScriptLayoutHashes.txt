@@ -92,7 +92,7 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-553994f84a3e8f0fd4dd9ca0eb1f36d7 Assembly-CSharp.dll:.GameDriver
+d091d7b0d548c387407fad97b0d18eea Assembly-CSharp.dll:.GameDriver
 ab06b6058fcbbcaa74a328639dc7d3e3 Assembly-CSharp.dll:Mapbox.Unity.Map.InitializeMapWithLocationProvider
 e81238197aa643d93e3d903c06302a67 Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Modifiers.ColliderModifier
 f4386a940b0c945b42ba5098c696420b Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Filters.HeightFilter
@@ -135,6 +135,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DefaultInitializationErrorHandler
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Mapbox.Examples.FeatureSelectionDetector
 f711595d1ad1f93cc36228f91ce0009a Assembly-CSharp.dll:.Timer
+18a9bb353b1a961994ecb30e353079a8 Assembly-CSharp.dll:.Transitions
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Components.TextureSelector
 e1734f63576cd8ea370eede4efae656b Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Factories.MapImageFactory
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
@@ -147,6 +148,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 e2e091e79326ed57efb2fdff2a3013f9 Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Components.FeatureBehaviour
+9a0086fac15ee77715948775cbe9e961 Assembly-CSharp.dll:UnityEngine.Networking.NewNetworkHUD
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Mapbox.Examples.PoiMarkerHelper
 ae9dce8d90505348dcfb3009a17849b5 Assembly-CSharp.dll:Mapbox.Unity.Map.BasicMap
 26215f135eeb48d8fa1189498c107f6c Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
@@ -225,7 +227,7 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 50c19b31df331c90f7911a2c28ca46c5 Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Factories.FlatSphereTerrainFactory
 63b6c83c30651f9df1cdbd49fa2bf6ce Assembly-CSharp.dll:.RayCastScanner
 0b859ec96e868c7408c743a05d53e38f Assembly-CSharp.dll:Mapbox.Examples.CameraMovement
-7ba9d3bb0730a0e70750a1a5fd42763e Assembly-CSharp.dll:.ChangeScene
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ChangeScene
 4687db7a0a4f25cd0ebb1317128c81a7 Assembly-CSharp.dll:Mapbox.Examples.Playground.ReverseGeocoderExample
 94cd6299c641309feb6b6f8f3bcd2959 Assembly-CSharp.dll:Mapbox.Unity.Map.DynamicZoomTileProvider
 7afbb4d1e228c936db08a975a5721d5d Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Modifiers.SpawnInsideModifier
@@ -304,10 +306,11 @@ ab32795e4d805b58f47e2b98596aa658 Assembly-CSharp.dll:Mapbox.Unity.Map.RangeTileP
 33a85b2ae614bca5faddeff171651e7f Assembly-CSharp.dll:Mapbox.Unity.Location.DeviceLocationProvider
 ae9dce8d90505348dcfb3009a17849b5 Assembly-CSharp.dll:Mapbox.Unity.Map.MapAtSpecificLocation
 c93728c2de7be1bdc64a28d1233525e7 Assembly-CSharp.dll:Mapbox.Unity.MeshGeneration.Modifiers.SnapTerrainRaycastModifier
-58c8bdb0352d6aa0d7c5de23498ef073 Assembly-CSharp.dll:.ObjectManager
+3cb293bd7eae61db64e081afcd97afb1 Assembly-CSharp.dll:.ObjectManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MenuDriver
 f4322fc0f64b38fe7809a75cfdc78866 Assembly-CSharp.dll:Mapbox.Examples.Voxels.VoxelTile
 65ce61bce6a9cc1cdde99a2eb764fefc Assembly-CSharp.dll:Mapbox.Examples.ObjectInspectorModifier
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerWaiting
 971587ca2df0c4c8c8b238f96f6a6f33 Assembly-CSharp.dll:Mapbox.Unity.Location.TransformLocationProvider
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerMovement
 44a3dfd1a8522003ea79fe6180df91d5 Assembly-CSharp.dll:Mapbox.Unity.Map.DynamicZoomMap

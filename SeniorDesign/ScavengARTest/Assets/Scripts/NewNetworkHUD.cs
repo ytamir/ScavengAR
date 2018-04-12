@@ -1,5 +1,8 @@
 #if ENABLE_UNET
 
+using UnityEngine.UI;
+using UnityEngine.Networking.Match;
+
 namespace UnityEngine.Networking
 {
 	[AddComponentMenu("Network/NetworkManagerHUD")]
@@ -8,6 +11,15 @@ namespace UnityEngine.Networking
 	public class NewNetworkHUD : MonoBehaviour
 	{
 		public NetworkManager manager;
+        public GameObject MatchMakeButton;
+        public GameObject AvailableGames;
+        public GameObject GameListMenu;
+        public GameObject WaitingMenu;
+        public GameObject GameDrive;
+        public GameObject waitText;
+        public GameObject usernameText;
+        public GameObject errorUserText;
+
 		[SerializeField] public bool showGUI = true;
 		[SerializeField] public int offsetX;
 		[SerializeField] public int offsetY;
@@ -49,6 +61,75 @@ namespace UnityEngine.Networking
 			}
 		}
 
+        public void EnableMatchMaking()
+        {
+            if(usernameText.GetComponent<Text>().text.Equals(""))
+            {
+                errorUserText.SetActive(true);
+            }else
+            {
+                manager.StartMatchMaker();
+            }
+            
+        }
+
+        public void GenerateMatch()
+        {
+            manager.matchName = GameObject.Find("RoomNameText").GetComponent<Text>().text;
+            //manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, GameObject.Find("RoomPassText").GetComponent<Text>().text, "", "", 0, 0, manager.OnMatchCreate);
+            manager.matchMaker.CreateMatch(manager.matchName, manager.matchSize, true, "", "", "", 0, 0, manager.OnMatchCreate);
+            //GameDrive.GetComponent<GameDriver>().CmdSetPlayerName(usernameText.GetComponent<Text>().text);
+
+        }
+
+        public void ShowMatches()
+        {
+            manager.matchMaker.ListMatches(0, 20, "", false, 0, 0, manager.OnMatchList);
+            int ypos = 500;
+            int spacing = 600;
+            if(manager.matches != null)
+            {
+                foreach (Transform child in AvailableGames.transform)
+                {
+                    if(child.gameObject.name != "Refresh")
+                    {
+                        GameObject.Destroy(child.gameObject);
+                    }
+                }
+                foreach (var match in manager.matches)
+                {
+                    GameObject newButton = Instantiate(MatchMakeButton, AvailableGames.transform) as GameObject;
+                    newButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, ypos);
+                    ypos -= 200;
+                    newButton.GetComponentInChildren<Text>().text = match.name;
+                    newButton.name = match.name;
+                    newButton.transform.SetParent(AvailableGames.transform);
+                    newButton.GetComponent<Button>().onClick.AddListener(() => JoinGame(match.name, (uint)match.currentSize, match.networkId));
+                    newButton.GetComponent<Button>().onClick.AddListener(() => GameListMenu.SetActive(false));
+                    newButton.GetComponent<Button>().onClick.AddListener(() => WaitingMenu.SetActive(true));
+                }
+                ypos = 500;
+            }
+        }
+
+        public void JoinGame(string name, uint size, Types.NetworkID id)
+        {
+            manager.matchName = name;
+            manager.matchSize = size;
+            manager.matchMaker.JoinMatch(id, "", "", "", 0, 0, manager.OnMatchJoined);
+            waitText.GetComponent<Text>().text = "You are player " + usernameText.GetComponent<Text>().text + "\n Please wait for host to start the game.";
+        }
+
+        /*public void OnMatchJoined(bool success, string extendedInfo, MatchInfo matchinfo)
+        {
+            Debug.Log("on match joined");
+            if(success)
+            {
+                GameDrive.GetComponent<GameDriver>().CmdSetPlayerName(usernameText.GetComponent<Text>().text);
+            }
+
+        }*/
+
 		void OnGUI()
 		{
 			if (!showGUI)
@@ -58,9 +139,9 @@ namespace UnityEngine.Networking
 			int ypos = 40 + offsetY;
 			int spacing = 24;
 
-			if (!NetworkClient.active && !NetworkServer.active && manager.matchMaker == null)
+			/*if (!NetworkClient.active && !NetworkServer.active && manager.matchMaker == null)
 			{
-				/*if (GUI.Button(new Rect(xpos, ypos, 200, 20), "LAN Host(H)"))
+				if (GUI.Button(new Rect(xpos, ypos, 200, 20), "LAN Host(H)"))
 				{
 					manager.StartHost();
 				}
@@ -77,7 +158,7 @@ namespace UnityEngine.Networking
 				{
 					manager.StartServer();
 				}
-				ypos += spacing;*/
+				ypos += spacing;
 			}
 			else
 			{
@@ -115,8 +196,8 @@ namespace UnityEngine.Networking
 				}
 				ypos += spacing;
 			}
-
-			if (!NetworkServer.active && !NetworkClient.active)
+            */
+			/*if (!NetworkServer.active && !NetworkClient.active)
 			{
 				ypos += 10;
 
@@ -204,7 +285,7 @@ namespace UnityEngine.Networking
 					}
 					ypos += spacing;
 				}
-			}
+			}*/
 		}
 	}
 };

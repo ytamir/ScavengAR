@@ -1,15 +1,36 @@
-﻿using System.Collections;
+﻿using Mapbox.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameDriver : MonoBehaviour {
+public class GameDriver : NetworkBehaviour {
 
-    private float gameSizeX;
-    private float gameSizeY;
-    private int gameMode;
+    [SyncVar]
+    public float gameTime = 300.0f;
+    [SyncVar]
+    public float gameSizeX = 0.0024f;
+    [SyncVar]
+    public float gameSizeY = 0.0018f;
+    [SyncVar]
+    public int gameMode;
+    [SyncVar]
+    public int objectCount = 10;
+    [SyncVar]
+    public Vector2d hostLocation = new Vector2d(0,0);
+    [SyncVar]
+    public int playersConnected = 0;
+
+    public SyncListString playerNames = new SyncListString();
+
+    public SyncListFloat objLocations = new SyncListFloat();
+    public SyncListInt playerScores = new SyncListInt();
+
     private int score = 0;
-    private float gameTime = 300.0f;
+    private string playerName;
+    
     public GameObject decBtn;
     public GameObject incBtn;
     public Text curTime;
@@ -18,6 +39,19 @@ public class GameDriver : MonoBehaviour {
 
     // Use this for initialization
 
+    [Command]
+    public void CmdSetPlayerName(string pname)
+    {
+        playerNames.Add(pname);
+        playerScores.Add(0);
+        Debug.Log(playerNames);
+    }
+
+    public void setPlayerName(string pname)
+    {
+        playerName = pname;
+    }
+    
     public void ScorePoint()
     {
         score++;
@@ -43,6 +77,7 @@ public class GameDriver : MonoBehaviour {
     public void increaseGameTime()
     {
         gameTime += 60.0f;
+        objectCount += 1;
         decBtn.GetComponent<Button>().interactable = true;
         if (gameTime == 600.0f)
         {
@@ -55,6 +90,7 @@ public class GameDriver : MonoBehaviour {
     public void decreaseGameTime()
     {
         incBtn.GetComponent<Button>().interactable = true;
+        objectCount -= 1;
         if (gameTime > 60.0f)
         {
             gameTime -= 60.0f;
@@ -77,14 +113,17 @@ public class GameDriver : MonoBehaviour {
             case 0:
                 gameSizeX = 0.0024f;
                 gameSizeY = 0.0018f;
+                objectCount = 10;
                 break;
             case 1:
                 gameSizeX = 0.0034f;
                 gameSizeY = 0.0028f;
+                objectCount = 15;
                 break;
             case 2:
                 gameSizeX = 0.0044f;
                 gameSizeY = 0.0038f;
+                objectCount = 20;
                 break;
         }
     }
@@ -120,11 +159,38 @@ public class GameDriver : MonoBehaviour {
 
     public void loadGame()
     {
-
+        for (int i = 0; i < objectCount; i++)
+        {
+            Vector2 testLoc = Random.insideUnitCircle;
+            testLoc.x *= gameSizeX;
+            testLoc.y *= gameSizeY;
+            objLocations.Add(testLoc.x);
+            objLocations.Add(testLoc.y);
+        }
+        this.GetComponent<ChangeScene>().NewScene("AlecTest");
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    private void LateUpdate()
+    {
+        if(isServer)
+        {
+            playersConnected = NetworkServer.connections.Count;
+            Debug.Log(playersConnected);
+        }
+        if(SceneManager.GetActiveScene().name == "AlecTest")
+        {
+            if(gameMode == 0)
+            {
+                gameTime -= Time.deltaTime;
+            } else
+            {
+                gameTime += Time.deltaTime;
+            }
+        }
+    }
 }

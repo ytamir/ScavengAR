@@ -516,6 +516,7 @@
     <Compile Include="Assets\Mapbox\Unity\Utilities\StyleSearchAttribute.cs" />
     <Compile Include="Assets\Mapbox\Unity\Utilities\TelemetryConfigurationButton.cs" />
     <Compile Include="Assets\Mapbox\Unity\Utilities\VectorExtensions.cs" />
+    <Compile Include="Assets\PlayerWaiting.cs" />
     <Compile Include="Assets\Scripts\ARCameraManager.cs" />
     <Compile Include="Assets\Scripts\AugmentedScript.cs" />
     <Compile Include="Assets\Scripts\CanvasSaver.cs" />
@@ -537,6 +538,7 @@
     <Compile Include="Assets\Scripts\PositionWithLocationProvider.cs" />
     <Compile Include="Assets\Scripts\RayCastScanner.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
+    <Compile Include="Assets\Scripts\Transitions.cs" />
     <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
     <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
   </ItemGroup>
